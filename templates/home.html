@@ -1,0 +1,16 @@
+<!DOCTYPE=html>
+<html>
+    <head>
+    <title>Search</title>
+    <body>
+    <center>
+        {% if not searching %}
+        <form method="POST">
+            Search: <input type="text" name="search"></input>
+        </form>
+        {% else %}
+        {{results}}
+        {% endif %}
+    </center>
+    </body>
+</html>
