@@ -25,8 +25,19 @@ def search():
         raw = soup.get_text()
 #print raw
         text = re.sub("[\t\n ]"," ",raw)
-        print text
-        #return render_template("home.html",searching=True,results = text)
+        
+        #looking for who??
+        if q[0:3]=="who":
+            exp = "[A-Z][a-z]+ [A-Z][a-z]+"
+        else:
+
+        #looking for when??
+            if q[0:4]=="when":
+                exp="[JanuaryFebruaryMarchAprilMayJuneJulyAugustSeptemberOctoberNovemberDecember]+ [0-9]{2}|[0-9]{4}"
+
+        result = re.findall(exp,text)
+        #print text
+        return render_template("home.html",searching=True,results = result)
 
 if __name__=="__main__":
     app.debug = True
