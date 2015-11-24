@@ -1,0 +1,44 @@
+<!DOCTYPE=html>
+<html>
+  <head>
+    <title>{% block title %}home{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat+Alternates|Megrim|Ribeye+Marrow|Julius+Sans+One|Text+Me+One' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+    <div class="jumbotron">
+      <div class="col-md-8 col-md-offset-2">
+
+	<!--heading-->
+	<div class="heading" id="down10">
+	  <h1 align="center">
+	    <span style="color: rgb(92,184,92)">w</span>ho<span style="color: rgb(92,184,92)">w</span>hat<span style="color: rgb(92,184,92)">w</span>hen<span style="color: rgb(92,184,92)">w</span>here<span style="color: rgb(92,184,92)">w</span>hy
+	  </h1>
+	</div>
+      </div>
+
+      <div class="col-md-6 col-md-offset-3">	
+	<!--search bar-->
+	{% if not searching %}
+	<form method="POST">
+	  <div align="center" id="down7">
+ 	    <input name="search" type="text" class="form-control"  placeholder="" >
+	  </div>
+	  <div align="center" id="down5">
+ 	    <input class="btn btn-success btn-lg" name="button" type="submit" value="Search">
+ 	  </div>
+	</form>
+	{% else %}
+	{{results}}
+	{% endif %}
+      </div>
+    </div>
+  </body>
+</html>
