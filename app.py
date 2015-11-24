@@ -1,4 +1,4 @@
-import urllib2, google, bs4, re
+import urllib2, google, bs4, re, utils
 from flask import Flask, render_template, redirect, url_for, request, Response
 
 app = Flask(__name__)
@@ -36,8 +36,12 @@ def search():
                 exp="[JanuaryFebruaryMarchAprilMayJuneJulyAugustSeptemberOctoberNovemberDecember]+ [0-9]{2}|[0-9]{4}"
 
         result = re.findall(exp,text)
+
+        #finding the most common outcome from result
+        answer = utils.findMostCommonElement(result)
+        
         #print text
-        return render_template("home.html",searching=True,results = result)
+        return render_template("home.html",searching=True,results = answer)
 
 if __name__=="__main__":
     app.debug = True
