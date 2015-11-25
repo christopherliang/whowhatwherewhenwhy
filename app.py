@@ -23,7 +23,7 @@ def search():
 #print page
         soup = bs4.BeautifulSoup(page,'html')
         raw = soup.get_text()
-#print raw
+        print raw
         text = re.sub("[\t\n ]"," ",raw)
         
         #looking for who??
