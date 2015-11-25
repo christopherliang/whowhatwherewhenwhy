@@ -29,11 +29,9 @@ def search():
         #looking for who??
         if q[0:3]=="who":
             exp = "[A-Z][a-z]+ [A-Z][a-z]+"
-        else:
-
         #looking for when??
-            if q[0:4]=="when":
-                exp="[JanuaryFebruaryMarchAprilMayJuneJulyAugustSeptemberOctoberNovemberDecember]+ [0-9]{2}|[0-9]{4}"
+        else if (q[0:4]=="when"):
+            exp="January|February|March|April|May|June|July|August|September|October|November|December+ [1-9]|[1-3][0-9]"
 
         result = re.findall(exp,text)
 
