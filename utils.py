@@ -9,5 +9,4 @@ def findMostCommonElement(l):
         else:
             wordCounter[word]=1
     sortedDict =  sorted(wordCounter.items(), key=operator.itemgetter(1))
-
-    return sortedDict[0]
+    return sortedDict[-1]

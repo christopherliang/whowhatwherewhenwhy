@@ -23,15 +23,16 @@ def search():
 #print page
         soup = bs4.BeautifulSoup(page,'html')
         raw = soup.get_text()
-        print raw
+        #print raw
         text = re.sub("[\t\n ]"," ",raw)
         
         #looking for who??
         if q[0:3]=="who":
             exp = "[A-Z][a-z]+ [A-Z][a-z]+"
         #looking for when??
-        else if (q[0:4]=="when"):
-            exp="January|February|March|April|May|June|July|August|September|October|November|December+ [1-9]|[1-3][0-9]"
+        else:
+            if (q[0:4]=="when"):
+                exp="January|February|March|April|May|June|July|August|September|October|November|December+ [1-9]|[1-3][0-9]"
 
         result = re.findall(exp,text)
 
