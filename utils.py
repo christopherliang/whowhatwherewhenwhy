@@ -9,7 +9,7 @@ def findMostCommonElement(l):
         else:
             wordCounter[word]=1
     sortedDict =  sorted(wordCounter.items(), key=operator.itemgetter(1))
-    return sortedDict[-1]
+    return sortedDict[-1][0]
 
 def compareNames(l):
     namesList = []
@@ -17,4 +17,8 @@ def compareNames(l):
         if word in names.getNames():
             namesList.append(word)
     return namesList
-    
+
+def parseString(s):
+    l = len(s)
+    return s[2:l-2]
+
