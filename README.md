@@ -9,4 +9,11 @@ Software Development Period 5
 - Helen Li
 
 ## Function
-- To retrieve data from Google API given a search query.
+- To retrieve data from Google API given a search query (who/when).
+  - "Who played Spiderman?"
+  - "When is Christmas?"
+
+## How to Run
+- pip install google
+- python app.py
+
