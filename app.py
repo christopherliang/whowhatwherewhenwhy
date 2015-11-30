@@ -27,13 +27,18 @@ def search():
         text = re.sub("[\t\n ]"," ",raw)
         
         #looking for who??
-        if q[0:3]=="who":
+        if q[0:3].lower()=="who":
             exp = "[A-Z][a-z]+ [A-Z][a-z]+"
             expForNames = "[A-Z][a-z]+"
         #looking for when??
         else:
-            if (q[0:4]=="when"):
+            if (q[0:4].lower()=="when"):
                 exp="January [1-9]+|February [1-9]+|March [1-9]+|April [1-9]+|May [1-9]+|June [1-9]+|July [1-9]+|August [1-9]+|September [1-9]+|October [1-9]+|November [1-9]+|December [1-9]+"
+
+            #look for something else...? we'll give you a name.
+            else:
+                exp = "[A-Z][a-z]+"
+
 
         result = re.findall(exp,text)
         #resultForNames = re.findall(expForNames, text)
