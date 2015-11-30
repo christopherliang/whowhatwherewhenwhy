@@ -1,4 +1,4 @@
-import urllib2, google, bs4, re
+import urllib2, google, bs4, re, utils
 from flask import Flask, render_template, redirect, url_for, request, Response
 
 app = Flask(__name__)
@@ -23,21 +23,29 @@ def search():
 #print page
         soup = bs4.BeautifulSoup(page,'html')
         raw = soup.get_text()
-#print raw
+        #print raw
         text = re.sub("[\t\n ]"," ",raw)
         
         #looking for who??
         if q[0:3]=="who":
             exp = "[A-Z][a-z]+ [A-Z][a-z]+"
-        else:
-
+            expForNames = "[A-Z][a-z]+"
         #looking for when??
-            if q[0:4]=="when":
-                exp="[JanuaryFebruaryMarchAprilMayJuneJulyAugustSeptemberOctoberNovemberDecember]+ [0-9]{2}|[0-9]{4}"
+        else:
+            if (q[0:4]=="when"):
+                exp="January|February|March|April|May|June|July|August|September|October|November|December+ [1-9]|[1-3][0-9]"
 
         result = re.findall(exp,text)
-        #print text
-        return render_template("home.html",searching=True,results = result)
+        resultForNames = re.findall(expForNames, text)
+
+        #finding the most common outcome from result
+        answer = utils.findMostCommonElement(result)
+        
+        #print resultForNames
+        namesList = utils.compareNames(resultForNames)
+        
+        print namesList
+        return render_template("home.html",searching=True,results = answer)
 
 if __name__=="__main__":
     app.debug = True
