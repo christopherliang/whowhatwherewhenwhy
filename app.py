@@ -46,7 +46,7 @@ def search():
         
         #print namesList
         print result
-        return render_template("home.html",searching=True,results = answer)
+        return render_template("answer.html",searching=True,results = answer)
 
 if __name__=="__main__":
     app.debug = True
