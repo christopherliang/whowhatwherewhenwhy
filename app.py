@@ -33,18 +33,19 @@ def search():
         #looking for when??
         else:
             if (q[0:4]=="when"):
-                exp="January|February|March|April|May|June|July|August|September|October|November|December+ [1-9]|[1-3][0-9]"
+                exp="January [1-9]+|February [1-9]+|March [1-9]+|April [1-9]+|May [1-9]+|June [1-9]+|July [1-9]+|August [1-9]+|September [1-9]+|October [1-9]+|November [1-9]+|December [1-9]+"
 
         result = re.findall(exp,text)
-        resultForNames = re.findall(expForNames, text)
+        #resultForNames = re.findall(expForNames, text)
 
         #finding the most common outcome from result
         answer = utils.findMostCommonElement(result)
         
         #print resultForNames
-        namesList = utils.compareNames(resultForNames)
+        #namesList = utils.compareNames(resultForNames)
         
-        print namesList
+        #print namesList
+        print result
         return render_template("home.html",searching=True,results = answer)
 
 if __name__=="__main__":
